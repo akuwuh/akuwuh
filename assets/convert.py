@@ -15,7 +15,7 @@ STEP_X     = 2.0        # cell width (in abstract grid units)
 Y_RATIO    = 2.0        # cell height = STEP_X * Y_RATIO (2.0 keeps braille proportions)
 SCALE      = 12.0       # px per grid unit (controls output size only)
 WIDTH_ATTR = "100%"     # SVG width attribute
-FILL       = "currentColor"
+FILL       = "white"
 
 DOT_DIAM_RATIO = 0.48   # dot diameter as a fraction of pitch (≈ your screenshot)
 MARGIN_CELLS   = 0.0    # optional empty border (in cells) around the trimmed art
