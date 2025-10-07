@@ -1,6 +1,14 @@
 <div align="center">
-  <img src="assets/braille-light.svg#gh-light-mode-only" width="350" alt="braille art" />
-  <img src="assets/braille-dark.svg#gh-dark-mode-only" width="350" alt="braille art" />
+  <picture>
+    <!-- Dark -->
+    <source media="(prefers-color-scheme: dark)"
+      srcset="assets/braille-dark.svg">
+    <!-- Light -->
+    <source media="(prefers-color-scheme: light)"
+      srcset="assets/braille-light.svg">
+    <img width="350" alt="braille art"
+      src="assets/braille-light.svg">
+  </picture>
   
 <br></br><br></br>
 <samp>
@@ -26,15 +34,20 @@
     <!-- Light -->
     <source media="(prefers-color-scheme: light)"
       srcset="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=true&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=262A30&currStreakNum=262A30&ring=262A30&fire=262A30&sideNums=262A30&sideLabels=262A30&dates=555555&v=7">
-    <img align="left" width="55%" alt="GitHub Streak"
+    <img width="55%" alt="GitHub Streak"
       src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&v=7">
   </picture>
 
-  <!-- Monochrome Top Languages with theme switching -->
-  <img align="right" width="38%" alt="Top Languages (light)" 
-    src="https://raw.githubusercontent.com/akuwuh/akuwuh/main/langs-mono-light.svg#gh-light-mode-only">
-  <img align="right" width="38%" alt="Top Languages (dark)" 
-    src="https://raw.githubusercontent.com/akuwuh/akuwuh/main/langs-mono-dark.svg#gh-dark-mode-only">
+  <picture>
+    <!-- Dark -->
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/akuwuh/akuwuh/main/langs-mono-dark.svg">
+    <!-- Light -->
+    <source media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/akuwuh/akuwuh/main/langs-mono-light.svg">
+    <img width="45%" alt="Top Languages"
+      src="https://raw.githubusercontent.com/akuwuh/akuwuh/main/langs-mono-light.svg">
+  </picture>
 </div>
 
 
@@ -48,7 +61,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/isaacnng) 
 [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:isaacnguyen0201@gmail.com)
 </div>
-
+  
 
 
 
