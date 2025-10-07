@@ -68,8 +68,8 @@ def generate_language_stats(lang_stats):
     # Calculate content width (longest line)
     max_content_length = max(len(line) for line in content_lines) if content_lines else 0
     
-    # Box width = 2 (left padding) + content + 3 (right padding)
-    inner_width = max_content_length + 2 + 3
+    # Inner width = 2 (left padding inside box) + content + 3 (right padding inside box)
+    inner_width = 2 + max_content_length + 3
     
     # Build the 3D box
     lines = []
@@ -79,21 +79,21 @@ def generate_language_stats(lang_stats):
     
     # Content lines with borders and right extrusion
     for i, content in enumerate(content_lines):
-        # Left padding: 2 spaces, Right padding: 3 spaces
+        # Pad: 2 spaces (left) + content + fill to inner_width
         padded_content = f'  {content}'.ljust(inner_width)
         
         if i == 0:
-            # First content line: add right extrusion start ├─┐
-            lines.append(f'│{padded_content}├─┐')
+            # First content line: 2 spaces (outside) + │ + padded_content + ├─┐
+            lines.append(f'  │{padded_content}├─┐')
         else:
-            # Other content lines: add right extrusion continuation │ │
-            lines.append(f'│{padded_content}│ │')
+            # Other content lines: 2 spaces (outside) + │ + padded_content + │ │
+            lines.append(f'  │{padded_content}│ │')
     
-    # Bottom border with 3D effect (1 space extrusion on both sides)
-    # First line: 1 space indent + └┬ + dashes + ┘ + 1 space + │
-    lines.append(' └┬' + '─' * (inner_width - 1) + '┘ │')
-    # Second line: 2 spaces indent + └ + dashes + extra dash + ┘
-    lines.append('  └' + '─' * inner_width + '┘')
+    # Bottom border with 3D effect (matching info card structure)
+    # First line: 2 spaces + └┬ + (inner_width - 1) dashes + ┘ + 1 space + │
+    lines.append('  └┬' + '─' * (inner_width - 1) + '┘ │')
+    # Second line: 3 spaces + └ + inner_width dashes + ┘
+    lines.append('   └' + '─' * inner_width + '┘')
     
     # Replace spaces with &nbsp; to preserve alignment in HTML
     html_lines = []
