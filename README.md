@@ -17,6 +17,8 @@
 </samp>
 <br></br>
 
+---
+
 <div align="center">
   <picture>
     <!-- Dark -->
