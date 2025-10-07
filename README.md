@@ -17,9 +17,17 @@
 </samp>
 <br></br>
 
-| Center |
-|:--:|
-| ![Streak (light)](https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=111111&currStreakNum=111111&ring=111111&sideNums=111111&sideLabels=111111&dates=555555&card_width=520&v=5#gh-light-mode-only) ![Streak (dark)](https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&currStreakNum=FFFFFF&ring=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F&card_width=520&v=5#gh-dark-mode-only) |
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+            srcset="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&currStreakNum=FFFFFF&ring=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F&v=3">
+    <source media="(prefers-color-scheme: light)"
+            srcset="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=111111&currStreakNum=111111&ring=111111&sideNums=111111&sideLabels=111111&dates=555555&v=3">
+    <img width="45%" alt="GitHub Streak"
+         src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&v=3">
+  </picture>
+</div>
+
 
 
 <!-- 
