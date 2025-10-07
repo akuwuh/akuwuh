@@ -4,15 +4,16 @@
 <br></br>
 <img align="right" width="50%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=true&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&fire=FFFFFF&ring=FFFFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F"/>
 
-```
-isaac
- ├─ age           // 22
- ├─ location      // toronto, ca
- ├─ studying      // cs
- ├─ interest      // everything!
- ├─ learning      // infra :>
- └─ fav anime     // steins;gate
-```
+<samp>
+isaac<br>
+&nbsp;&nbsp;├─ age: 22<br>
+&nbsp;&nbsp;├─ location: Toronto, Canada<br>
+&nbsp;&nbsp;├─ studying: CS<br>
+&nbsp;&nbsp;├─ interest: everything!<br>
+&nbsp;&nbsp;├─ currently learning: infra :3<br>
+&nbsp;&nbsp;└─ favourite anime: Steins;Gate
+</samp>
+
 <br clear="both"><br/>
 
 
