@@ -1,128 +1,126 @@
-# braille_to_svg_asymmetric_pitch.py
-# Convert Unicode braille (U+2800–U+28FF) to an SVG of dots where the
-# spacing *inside a cell* can differ slightly from the spacing *between cells*
-# (both horizontally and vertically). Also trims empty padding rows/cols.
+# braille_to_svg_uniform_spacing_trimmed.py
+# Converts a block of Unicode braille (U+2800–U+28FF) to a tightly-cropped SVG
+# with *uniform pitch*: the gap inside each 2×4 cell equals the gap across
+# neighbouring cells horizontally and vertically. Leading/trailing blank rows
+# and columns are removed automatically.
 
 from pathlib import Path
+from typing import List, Tuple
 
-# ========= tweak these defaults =========
+# ========= defaults you can set once =========
 SRC_PATH   = Path('/Users/cute/Documents/vsc/akuwuh/assets/ascii.txt')
 OUT_PATH   = Path('/Users/cute/Documents/vsc/akuwuh/assets/.inline_braille.svg')
 
-STEP_X     = 2.0     # cell width in abstract units (controls overall width)
-Y_RATIO    = 1.0     # cell height = STEP_X * Y_RATIO (1.0 = square pitch)
-SCALE      = 12.0    # pixels per abstract unit (output size only)
-WIDTH_ATTR = "100%"  # SVG width attribute
+STEP_X     = 2.0        # cell width (in abstract grid units)
+Y_RATIO    = 2.0        # cell height = STEP_X * Y_RATIO (2.0 keeps braille proportions)
+SCALE      = 12.0       # px per grid unit (controls output size only)
+WIDTH_ATTR = "100%"     # SVG width attribute
 FILL       = "currentColor"
 
-# --- Asymmetric pitch controls ---
-# m_x_ratio, m_y_ratio define the margin from the cell edges to the first/last
-# dot centers. They directly control the *between-cells* gap:
-#   inter_gap_x = 2 * m_x,    intra_gap_x = STEP_X - 2 * m_x
-#   inter_gap_y = 2 * m_y,    intra_gap_y = (STEP_Y - 2 * m_y) / 3
-# For *uniform* pitch use 0.25 and 1/8 (0.125) respectively.
-# To make the between-cell gap slightly larger than within-cell, increase them a bit.
-MARGIN_X_RATIO = 0.28   # was 0.25; >0.25 -> wider gap between cells than within
-MARGIN_Y_RATIO = 0.150  # was 0.125; >0.125 -> wider vertical gap between cells
+DOT_DIAM_RATIO = 0.48   # dot diameter as a fraction of pitch (≈ your screenshot)
+MARGIN_CELLS   = 0.0    # optional empty border (in cells) around the trimmed art
+# ============================================
 
-DOT_DIAM_RATIO = 0.48   # dot diameter as a fraction of the *smallest* gap
-                        # (keeps dots from touching even in tightest direction)
-# =======================================
 # 2×4 braille bit order (U+2800 base)
 DOT_OFFSETS = [
-    (0, 0), (0, 1), (0, 2), (1, 0),
-    (1, 1), (1, 2), (0, 3), (1, 3),
+    (0, 0),  # dot 1
+    (0, 1),  # dot 2
+    (0, 2),  # dot 3
+    (1, 0),  # dot 4
+    (1, 1),  # dot 5
+    (1, 2),  # dot 6
+    (0, 3),  # dot 7
+    (1, 3),  # dot 8
 ]
 
-def trim_braille_rect(lines: list[str]) -> tuple[list[str], int, int]:
-    """Trim empty rows/cols (only spaces or U+2800). Returns (trimmed, left, top)."""
-    if not lines:
-        return [], 0, 0
+def is_braille_dot(ch: str) -> bool:
+    """True if ch is a braille char with any dot set (not U+2800 blank)."""
+    if not ch:
+        return False
+    code = ord(ch)
+    if 0x2800 <= code <= 0x28FF:
+        return (code - 0x2800) != 0
+    return False
 
-    n_rows = len(lines)
-    n_cols = max(len(l) for l in lines) if lines else 0
-    pad   = lambda s, w: s + " " * (w - len(s))
-
-    # quick helpers
-    def is_blank_ch(ch: str) -> bool:
-        return ch == " " or ord(ch) == 0x2800
-
-    # find top
-    top = 0
-    while top < n_rows and all(is_blank_ch(c) for c in pad(lines[top], n_cols)):
-        top += 1
-    # find bottom
-    bottom = n_rows - 1
-    while bottom >= top and all(is_blank_ch(c) for c in pad(lines[bottom], n_cols)):
-        bottom -= 1
-    if top > bottom:
-        return [], 0, 0
-
-    # find left/right
-    left = 0
-    right = n_cols - 1
-    # left
-    while left <= right:
-        if all(is_blank_ch(pad(lines[r], n_cols)[left]) for r in range(top, bottom + 1)):
-            left += 1
-        else:
-            break
-    # right
-    while right >= left:
-        if all(is_blank_ch(pad(lines[r], n_cols)[right]) for r in range(top, bottom + 1)):
-            right -= 1
-        else:
-            break
-
-    trimmed = [pad(lines[r], n_cols)[left:right+1] for r in range(top, bottom + 1)]
-    return trimmed, left, top
-
-def braille_text_to_svg(text: str) -> str:
-    raw_lines = text.splitlines()
-    lines, _, _ = trim_braille_rect(raw_lines)
+def find_trim_bounds(lines: List[str]) -> Tuple[int, int, int, int]:
+    """
+    Return (row_start, row_end_excl, col_start, col_end_excl) that tightly
+    bounds any real braille dots. If no dots, returns (0, 0, 0, 0).
+    """
     num_rows = len(lines)
     num_cols = max((len(l) for l in lines), default=0)
-    if num_rows == 0 or num_cols == 0:
-        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0"></svg>'
 
+    min_r, max_r = num_rows, -1
+    min_c, max_c = num_cols, -1
+
+    for r, line in enumerate(lines):
+        # Scan only actual characters; missing tail is blank
+        for c in range(len(line)):
+            if is_braille_dot(line[c]):
+                if r < min_r: min_r = r
+                if r > max_r: max_r = r
+                if c < min_c: min_c = c
+                if c > max_c: max_c = c
+
+    if max_r == -1:  # no dots
+        return 0, 0, 0, 0
+
+    return min_r, max_r + 1, min_c, max_c + 1
+
+def braille_text_to_svg(text: str) -> str:
+    lines = text.splitlines()
+
+    r0, r1, c0, c1 = find_trim_bounds(lines)
+    if r1 == r0 or c1 == c0:
+        # No dots → minimal empty SVG
+        return (
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" '
+            f'width="{WIDTH_ATTR}" fill="{FILL}" preserveAspectRatio="xMidYMid meet"/>'
+        )
+
+    # Crop logical grid to bounds
+    cropped = [line[c0:c1] for line in lines[r0:r1]]
+    rows = len(cropped)
+    cols = max((len(l) for l in cropped), default=0)
+
+    # Derived metrics
     step_x = float(STEP_X)
     step_y = float(STEP_X) * float(Y_RATIO)
 
-    # Asymmetric pitch parameters
-    m_x = step_x * float(MARGIN_X_RATIO)               # margin from cell edge to first/last column center
-    m_y = step_y * float(MARGIN_Y_RATIO)               # margin from cell edge to first/last row center
-    intra_gap_x = step_x - 2.0 * m_x                   # inside-cell gap horizontally
-    inter_gap_x = 2.0 * m_x                            # between-cells gap horizontally
-    intra_gap_y = (step_y - 2.0 * m_y) / 3.0           # inside-cell gap vertically
-    inter_gap_y = 2.0 * m_y                            # between-cells gap vertically
+    # Uniform pitch (2×4 per cell)
+    spacing_x = step_x / 2.0
+    spacing_y = step_y / 4.0
 
-    # Column centers (left/right) and row centers (4 rows)
-    cx_base = {0: m_x, 1: step_x - m_x}
-    cy_base = {i: m_y + i * intra_gap_y for i in range(4)}
+    # Dot centers (uniform gaps in/out of cells)
+    cx_base = {0: step_x * 0.25, 1: step_x * 0.75}
+    cy_base = {row: step_y * (row * 2 + 1) / 8.0 for row in range(4)}
 
-    # Choose radius from the tightest gap (so circles never touch)
-    smallest_gap = min(intra_gap_x, inter_gap_x, intra_gap_y, inter_gap_y)
-    r = smallest_gap * (DOT_DIAM_RATIO / 2.0)
+    # Dot radius from pitch
+    r = min(spacing_x, spacing_y) * (DOT_DIAM_RATIO / 2.0)
 
-    circles: list[str] = []
-    for y, raw in enumerate(lines):
-        line = raw.ljust(num_cols, " ")
+    # Optional margin
+    mx = MARGIN_CELLS * step_x
+    my = MARGIN_CELLS * step_y
+
+    circles = []
+    for y, raw in enumerate(cropped):
+        line = raw.ljust(cols, " ")  # normalize row width for consistent layout
         for x, ch in enumerate(line):
-            code = ord(ch)
+            code = ord(ch) if x < len(raw) else 0
             if 0x2800 <= code <= 0x28FF:
                 bits = code - 0x2800
                 if bits == 0:
                     continue
-                base_x = x * step_x
-                base_y = y * step_y
+                base_x = mx + x * step_x
+                base_y = my + y * step_y
                 for bit_index, (dx, dy) in enumerate(DOT_OFFSETS):
                     if bits & (1 << bit_index):
                         cx = (base_x + cx_base[dx]) * SCALE
                         cy = (base_y + cy_base[dy]) * SCALE
                         circles.append(f'<circle cx="{cx:.3f}" cy="{cy:.3f}" r="{r*SCALE:.3f}"/>')
 
-    width  = (num_cols * step_x) * SCALE
-    height = (num_rows * step_y) * SCALE
+    width  = (cols * step_x + 2 * MARGIN_CELLS * step_x) * SCALE
+    height = (rows * step_y + 2 * MARGIN_CELLS * step_y) * SCALE
 
     svg = (
         f'<svg xmlns="http://www.w3.org/2000/svg" '
@@ -130,7 +128,7 @@ def braille_text_to_svg(text: str) -> str:
         f'fill="{FILL}" shape-rendering="geometricPrecision" '
         f'preserveAspectRatio="xMidYMid meet">'
         + "".join(circles) +
-        "</svg>"
+        '</svg>'
     )
     return svg
 
