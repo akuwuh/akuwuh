@@ -77,17 +77,23 @@ def generate_language_stats(lang_stats):
     # Top border (no left padding for top)
     lines.append('┌' + '─' * inner_width + '┐')
     
-    # Content lines with borders
-    for content in content_lines:
+    # Content lines with borders and right extrusion
+    for i, content in enumerate(content_lines):
         # Left padding: 2 spaces, Right padding: 3 spaces
         padded_content = f'  {content}'.ljust(inner_width)
-        lines.append(f'│{padded_content}│')
+        
+        if i == 0:
+            # First content line: add right extrusion start ├─┐
+            lines.append(f'│{padded_content}├─┐')
+        else:
+            # Other content lines: add right extrusion continuation │ │
+            lines.append(f'│{padded_content}│ │')
     
-    # Bottom border with 3D effect (1 space extrusion)
-    # First line: 1 space indent + └┬ + dashes + ┘│
-    lines.append(' └┬' + '─' * (inner_width - 1) + '┘│')
-    # Second line: 2 spaces indent + └ + dashes + ─┘
-    lines.append('  └' + '─' * (inner_width - 1) + '─┘')
+    # Bottom border with 3D effect (1 space extrusion on both sides)
+    # First line: 1 space indent + └┬ + dashes + ┘ + 1 space + │
+    lines.append(' └┬' + '─' * (inner_width - 1) + '┘ │')
+    # Second line: 2 spaces indent + └ + dashes + extra dash + ┘
+    lines.append('  └' + '─' * inner_width + '┘')
     
     # Replace spaces with &nbsp; to preserve alignment in HTML
     html_lines = []
