@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: pip install requests
       
-      - name: Generate language SVGs
+      - name: Generate language stats
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.repository_owner }}
@@ -33,6 +33,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add langs-mono-*.svg
+          git add README.md
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update language stats" && git push)
 

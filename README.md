@@ -38,16 +38,20 @@
       src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&v=7">
   </picture>
 
-  <picture>
-    <!-- Dark -->
-    <source media="(prefers-color-scheme: dark)"
-      srcset="https://raw.githubusercontent.com/akuwuh/akuwuh/main/langs-mono-dark.svg">
-    <!-- Light -->
-    <source media="(prefers-color-scheme: light)"
-      srcset="https://raw.githubusercontent.com/akuwuh/akuwuh/main/langs-mono-light.svg">
-    <img width="45%" alt="Top Languages"
-      src="https://raw.githubusercontent.com/akuwuh/akuwuh/main/langs-mono-light.svg">
-  </picture>
+</div>
+
+<br/>
+
+<div align="center">
+
+<!--START_SECTION:languages-->
+```text
+TypeScript    █████████████░░░░░░░░░░░░  29.5 %
+Python        ████████████░░░░░░░░░░░░░  28.9 %
+C             ████████░░░░░░░░░░░░░░░░░  18.4 %
+```
+<!--END_SECTION:languages-->
+
 </div>
 
 

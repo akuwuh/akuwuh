@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import sys
+import re
 import requests
 from collections import defaultdict
 
@@ -39,88 +40,66 @@ def fetch_language_stats(username, token):
     
     return lang_stats[:8]  # Top 8 languages
 
-def generate_progress_bar(percentage, total_blocks=20):
+def generate_progress_bar(percentage, total_blocks=25):
     """Generate filled and empty blocks based on percentage"""
     filled_blocks = round((percentage / 100) * total_blocks)
-    return filled_blocks, total_blocks - filled_blocks
+    empty_blocks = total_blocks - filled_blocks
+    return '█' * filled_blocks + '░' * empty_blocks
 
-def generate_svg(lang_stats, theme='light'):
-    """Generate SVG with text-based progress bars (WakaTime style)"""
+def generate_language_stats(lang_stats):
+    """Generate WakaTime-style language stats text"""
+    lines = []
     
-    if theme == 'light':
-        title_color = '#4A5568'
-        lang_color = '#2D3748'
-        percent_color = '#4A5568'
-        bar_color = '#6B7280'
-    else:  # dark
-        title_color = '#A0AEC0'
-        lang_color = '#E2E8F0'
-        percent_color = '#CBD5E0'
-        bar_color = '#D1D5DB'
-    
-    height = 40 + len(lang_stats) * 24
-    svg = f'''<svg width="480" height="{height}" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .title {{ 
-      fill: {title_color}; 
-      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }}
-    .lang-name {{ 
-      fill: {lang_color}; 
-      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
-      font-size: 14px;
-      font-weight: 400;
-    }}
-    .bar-text {{ 
-      fill: {bar_color}; 
-      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
-      font-size: 14px;
-      font-weight: 400;
-    }}
-    .percent {{ 
-      fill: {percent_color}; 
-      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
-      font-size: 14px;
-      font-weight: 400;
-    }}
-  </style>
-  
-  <rect width="480" height="{height}" fill="transparent"/>
-  
-  <!-- Title -->
-  <text x="20" y="25" class="title">MOST USED LANGUAGES</text>
-'''
-    
-    y_offset = 54
     for lang_name, percentage in lang_stats:
-        filled_blocks, empty_blocks = generate_progress_bar(percentage, total_blocks=25)
+        # Pad language name to fixed width (14 chars)
+        lang_display = lang_name.ljust(14)
         
-        # Pad language name to fixed width
-        lang_display = lang_name.ljust(14)[:14]
+        # Generate progress bar
+        bar_string = generate_progress_bar(percentage)
         
-        # Generate bar string
-        bar_string = '█' * filled_blocks + '░' * empty_blocks
+        # Format percentage with padding
+        percent_str = f'{percentage:5.1f} %'
         
-        # Add comment
-        svg += f'\n  <!-- {lang_name} - {percentage:.1f}% -->\n'
-        
-        # Add language name
-        svg += f'  <text x="20" y="{y_offset}" class="lang-name">{lang_display}</text>\n'
-        
-        # Add progress bar
-        svg += f'  <text x="160" y="{y_offset}" class="bar-text">{bar_string}</text>\n'
-        
-        # Add percentage
-        percent_str = f'{percentage:5.1f}%'
-        svg += f'  <text x="415" y="{y_offset}" class="percent">{percent_str}</text>\n'
-        
-        y_offset += 24
+        # Combine: "TypeScript    ████████████░░░░░░░░░░░░░  29.5 %"
+        line = f'{lang_display} {bar_string}  {percent_str}'
+        lines.append(line)
     
-    svg += '</svg>'
-    return svg
+    return '\n'.join(lines)
+
+def update_readme(stats_text):
+    """Update README.md with language stats between markers"""
+    readme_path = 'README.md'
+    
+    try:
+        with open(readme_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+    except FileNotFoundError:
+        print(f"Error: {readme_path} not found")
+        sys.exit(1)
+    
+    # Markers for the stats section
+    start_marker = '<!--START_SECTION:languages-->'
+    end_marker = '<!--END_SECTION:languages-->'
+    
+    # Check if markers exist
+    if start_marker not in content or end_marker not in content:
+        print(f"Error: Markers not found in {readme_path}")
+        print(f"Please add these markers to your README:")
+        print(f"  {start_marker}")
+        print(f"  {end_marker}")
+        sys.exit(1)
+    
+    # Replace content between markers
+    pattern = f'{re.escape(start_marker)}.*?{re.escape(end_marker)}'
+    new_section = f'{start_marker}\n```text\n{stats_text}\n```\n{end_marker}'
+    
+    updated_content = re.sub(pattern, new_section, content, flags=re.DOTALL)
+    
+    # Write back to README
+    with open(readme_path, 'w', encoding='utf-8') as f:
+        f.write(updated_content)
+    
+    print(f"Successfully updated {readme_path}")
 
 def main():
     token = os.environ.get('GITHUB_TOKEN')
@@ -141,17 +120,16 @@ def main():
     for lang, pct in lang_stats:
         print(f"  {lang}: {pct:.1f}%")
     
-    # Generate light theme
-    print("\nGenerating langs-mono-light.svg...")
-    light_svg = generate_svg(lang_stats, theme='light')
-    with open('langs-mono-light.svg', 'w') as f:
-        f.write(light_svg)
+    # Generate stats text
+    print("\nGenerating language stats...")
+    stats_text = generate_language_stats(lang_stats)
     
-    # Generate dark theme
-    print("Generating langs-mono-dark.svg...")
-    dark_svg = generate_svg(lang_stats, theme='dark')
-    with open('langs-mono-dark.svg', 'w') as f:
-        f.write(dark_svg)
+    print("\nGenerated stats:")
+    print(stats_text)
+    
+    # Update README
+    print("\nUpdating README.md...")
+    update_readme(stats_text)
     
     print("Done!")
 
