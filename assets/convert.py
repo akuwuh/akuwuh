@@ -6,8 +6,8 @@
 from pathlib import Path
 
 # ========= tweak these defaults =========
-SRC_PATH   = Path('/Users/cute/Documents/vsc/akuwuh/ascii.txt')
-OUT_PATH   = Path('/Users/cute/Documents/vsc/akuwuh/.inline_braille.svg')
+SRC_PATH   = Path('/Users/cute/Documents/vsc/akuwuh/assets/ascii.txt')
+OUT_PATH   = Path('/Users/cute/Documents/vsc/akuwuh/assets/.inline_braille.svg')
 
 STEP_X     = 2.0     # cell width in abstract units (controls overall width)
 Y_RATIO    = 1.0     # cell height = STEP_X * Y_RATIO (1.0 = square pitch)
