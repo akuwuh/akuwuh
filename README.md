@@ -16,7 +16,7 @@
 &nbsp;&nbsp;&nbsp;└───────────────────────────────────────┘
 </samp>
 
-<br></br><br></br><br></br>
+<br></br><br></br>
 
 <div align="center">
   <picture>
