@@ -45,23 +45,21 @@ def generate_progress_bar(percentage, total_blocks=20):
     return filled_blocks, total_blocks - filled_blocks
 
 def generate_svg(lang_stats, theme='light'):
-    """Generate SVG with text-based progress bars"""
+    """Generate SVG with text-based progress bars (WakaTime style)"""
     
     if theme == 'light':
         title_color = '#4A5568'
         lang_color = '#2D3748'
         percent_color = '#4A5568'
-        filled_color = '#6B7280'
-        empty_color = '#E5E7EB'
+        bar_color = '#6B7280'
     else:  # dark
         title_color = '#A0AEC0'
         lang_color = '#E2E8F0'
         percent_color = '#CBD5E0'
-        filled_color = '#D1D5DB'
-        empty_color = '#374151'
+        bar_color = '#D1D5DB'
     
-    height = 35 + len(lang_stats) * 22
-    svg = f'''<svg width="420" height="{height}" xmlns="http://www.w3.org/2000/svg">
+    height = 40 + len(lang_stats) * 24
+    svg = f'''<svg width="480" height="{height}" xmlns="http://www.w3.org/2000/svg">
   <style>
     .title {{ 
       fill: {title_color}; 
@@ -73,44 +71,53 @@ def generate_svg(lang_stats, theme='light'):
     .lang-name {{ 
       fill: {lang_color}; 
       font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 400;
+    }}
+    .bar-text {{ 
+      fill: {bar_color}; 
+      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
+      font-size: 14px;
+      font-weight: 400;
     }}
     .percent {{ 
       fill: {percent_color}; 
       font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 400;
     }}
-    .bar-filled {{ fill: {filled_color}; }}
-    .bar-empty {{ fill: {empty_color}; }}
   </style>
   
-  <rect width="420" height="{height}" fill="transparent"/>
+  <rect width="480" height="{height}" fill="transparent"/>
   
   <!-- Title -->
   <text x="20" y="25" class="title">MOST USED LANGUAGES</text>
 '''
     
-    y_offset = 52
+    y_offset = 54
     for lang_name, percentage in lang_stats:
-        filled_blocks, empty_blocks = generate_progress_bar(percentage)
+        filled_blocks, empty_blocks = generate_progress_bar(percentage, total_blocks=25)
+        
+        # Pad language name to fixed width
+        lang_display = lang_name.ljust(14)[:14]
+        
+        # Generate bar string
+        bar_string = '█' * filled_blocks + '░' * empty_blocks
+        
+        # Add comment
+        svg += f'\n  <!-- {lang_name} - {percentage:.1f}% -->\n'
         
         # Add language name
-        svg += f'\n  <!-- {lang_name} - {percentage:.1f}% -->\n'
-        svg += f'  <text x="20" y="{y_offset}" class="lang-name">{lang_name}</text>\n'
+        svg += f'  <text x="20" y="{y_offset}" class="lang-name">{lang_display}</text>\n'
         
-        # Add progress bar blocks
-        x_pos = 140
-        for i in range(20):  # Total 20 blocks
-            block_class = 'bar-filled' if i < filled_blocks else 'bar-empty'
-            svg += f'  <rect x="{x_pos}" y="{y_offset - 10}" width="10" height="12" class="{block_class}"/>\n'
-            x_pos += 12
+        # Add progress bar
+        svg += f'  <text x="160" y="{y_offset}" class="bar-text">{bar_string}</text>\n'
         
         # Add percentage
-        svg += f'  <text x="385" y="{y_offset}" class="percent">{percentage:.1f}%</text>\n'
+        percent_str = f'{percentage:5.1f}%'
+        svg += f'  <text x="415" y="{y_offset}" class="percent">{percent_str}</text>\n'
         
-        y_offset += 22
+        y_offset += 24
     
     svg += '</svg>'
     return svg
