@@ -42,22 +42,15 @@
 
 <br/>
 
-<div align="center">
-
 <!--START_SECTION:languages-->
-```text
-TypeScript     ███████░░░░░░░░░░░░░░░░░░   29.1 %
-Python         ███████░░░░░░░░░░░░░░░░░░   28.5 %
-C              █████░░░░░░░░░░░░░░░░░░░░   18.2 %
-JavaScript     ██░░░░░░░░░░░░░░░░░░░░░░░    8.2 %
-C++            ██░░░░░░░░░░░░░░░░░░░░░░░    7.6 %
-HTML           █░░░░░░░░░░░░░░░░░░░░░░░░    3.2 %
-CSS            █░░░░░░░░░░░░░░░░░░░░░░░░    2.9 %
-Svelte         ░░░░░░░░░░░░░░░░░░░░░░░░░    1.0 %
-```
-<!--END_SECTION:languages-->
-
+<div align="center">
+<samp>
+TypeScript&nbsp;&nbsp;&nbsp;&nbsp;█████████████░░░░░░░░░░░░&nbsp;&nbsp;29.5&nbsp;%<br>
+Python&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████████░░░░░░░░░░░░░&nbsp;&nbsp;28.9&nbsp;%<br>
+C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████░░░░░░░░░░░░░░░░░&nbsp;&nbsp;18.4&nbsp;%
+</samp>
 </div>
+<!--END_SECTION:languages-->
 
 
 <!-- 

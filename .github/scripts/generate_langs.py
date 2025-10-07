@@ -47,7 +47,7 @@ def generate_progress_bar(percentage, total_blocks=25):
     return '█' * filled_blocks + '░' * empty_blocks
 
 def generate_language_stats(lang_stats):
-    """Generate WakaTime-style language stats text"""
+    """Generate WakaTime-style language stats as HTML samp"""
     lines = []
     
     for lang_name, percentage in lang_stats:
@@ -62,9 +62,15 @@ def generate_language_stats(lang_stats):
         
         # Combine: "TypeScript    ████████████░░░░░░░░░░░░░  29.5 %"
         line = f'{lang_display} {bar_string}  {percent_str}'
+        
+        # Replace spaces with &nbsp; to preserve alignment in HTML
+        line = line.replace(' ', '&nbsp;')
+        
         lines.append(line)
     
-    return '\n'.join(lines)
+    # Wrap in centered div with samp tag
+    stats_html = '<br>\n'.join(lines)
+    return f'<div align="center">\n<samp>\n{stats_html}\n</samp>\n</div>'
 
 def update_readme(stats_text):
     """Update README.md with language stats between markers"""
@@ -91,7 +97,7 @@ def update_readme(stats_text):
     
     # Replace content between markers
     pattern = f'{re.escape(start_marker)}.*?{re.escape(end_marker)}'
-    new_section = f'{start_marker}\n```text\n{stats_text}\n```\n{end_marker}'
+    new_section = f'{start_marker}\n{stats_text}\n{end_marker}'
     
     updated_content = re.sub(pattern, new_section, content, flags=re.DOTALL)
     
