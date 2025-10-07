@@ -18,9 +18,14 @@
 
 <br></br>
 
-<img align="center" width="45%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=falsetrue&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&fire=FFFFFF&ring=FFFFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F#gh-dark-mode-only"/>
+![Streak (light)](https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=111111&currStreakNum=111111&ring=111111&sideNums=111111&sideLabels=111111&dates=555555#gh-light-mode-only)
 
-<img align="center" width="45%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=true&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=111111&currStreakNum=111111&ring=111111&sideNums=111111&sideLabels=111111&dates=555555#gh-light-mode-only"/>
+![Streak (dark)](https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&currStreakNum=FFFFFF&ring=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F#gh-dark-mode-only)
+
+<!-- 
+<img align="center" width="45%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&fire=FFFFFF&ring=FFFFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F#gh-dark-mode-only"/>
+
+<img align="center" width="45%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=111111&currStreakNum=111111&ring=111111&sideNums=111111&sideLabels=111111&dates=555555#gh-light-mode-only"/> -->
 
 <br clear="both"><br/>
 
