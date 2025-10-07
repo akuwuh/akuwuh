@@ -12,7 +12,6 @@ studying: cs
 interest: everything!
 currently learning: infra :3
 favourite anime: stein;gate</pre>
-  <br clear="both"></br>
 </div>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/isaacnng) 
