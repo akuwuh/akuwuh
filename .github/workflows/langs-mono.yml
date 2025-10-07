@@ -6,6 +6,8 @@ on:
 jobs:
   langs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Top Langs · LIGHT
         uses: lowlighter/metrics@latest
@@ -16,6 +18,9 @@ jobs:
           base: ""
           plugin_languages: yes
           plugin_languages_limit: 8
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          committer_branch: main
+          committer_message: "Update language stats (light mode)"
           # same mid-gray for every bar (monochrome, not pure black)
           plugin_languages_colors: >
             0:#6B7280, 1:#6B7280, 2:#6B7280, 3:#6B7280,
@@ -30,6 +35,9 @@ jobs:
           base: ""
           plugin_languages: yes
           plugin_languages_limit: 8
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          committer_branch: main
+          committer_message: "Update language stats (dark mode)"
           # light gray for dark backgrounds
           plugin_languages_colors: >
             0:#D1D5DB, 1:#D1D5DB, 2:#D1D5DB, 3:#D1D5DB,
