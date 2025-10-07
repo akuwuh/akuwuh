@@ -5,10 +5,10 @@
 <div align="center">
   <img src="assets/.inline_braille.svg" width="350" alt="braille art" />
   <br></br>
-  <div style="display: inline-block; width: 49%; vertical-align: top;">
+  <div style="display: inline-block; width: 49%; vertical-align: top;" align="left">
     <pre>Hello I'm Isaac</pre>
   </div>
-  <div style="display: inline-block; width: 49%; vertical-align: top;">
+  <div style="display: inline-block; width: 49%; vertical-align: top;" align="right">
    <a href="https://github.com/akuwuh"><img src="http://github-readme-streak-stats.herokuapp.com/?user=akuwuh&theme=radical&date_format=M%20j%5B%2C%20Y%5D&ring=ff3068&fire=ff3068&sideNums=ff3068"></a>
   </div>
 </div>
