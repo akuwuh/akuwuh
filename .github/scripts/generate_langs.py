@@ -47,9 +47,10 @@ def generate_progress_bar(percentage, total_blocks=25):
     return '█' * filled_blocks + '░' * empty_blocks
 
 def generate_language_stats(lang_stats):
-    """Generate WakaTime-style language stats as HTML samp"""
-    lines = []
+    """Generate WakaTime-style language stats as HTML samp with 3D box"""
     
+    # Build the content lines
+    content_lines = []
     for lang_name, percentage in lang_stats:
         # Pad language name to fixed width (14 chars)
         lang_display = lang_name.ljust(14)
@@ -62,14 +63,35 @@ def generate_language_stats(lang_stats):
         
         # Combine: "TypeScript    ████████████░░░░░░░░░░░░░  29.5 %"
         line = f'{lang_display} {bar_string}  {percent_str}'
-        
-        # Replace spaces with &nbsp; to preserve alignment in HTML
-        line = line.replace(' ', '&nbsp;')
-        
-        lines.append(line)
+        content_lines.append(line)
+    
+    # Calculate box width (based on content)
+    box_width = 50  # Adjust as needed
+    
+    # Build the 3D box
+    lines = []
+    
+    # Top border
+    lines.append('┌' + '─' * box_width + '┐')
+    
+    # Content lines with borders
+    for content in content_lines:
+        # Pad content to fit box width
+        padded_content = f'  {content}'.ljust(box_width - 1)
+        lines.append(f'│{padded_content}│')
+    
+    # Bottom border with 3D effect
+    lines.append('└┬' + '─' * (box_width - 1) + '┘│')
+    lines.append(' └' + '─' * (box_width - 1) + '─┘')
+    
+    # Replace spaces with &nbsp; to preserve alignment in HTML
+    html_lines = []
+    for line in lines:
+        html_line = line.replace(' ', '&nbsp;')
+        html_lines.append(html_line)
     
     # Wrap in centered div with samp tag
-    stats_html = '<br>\n'.join(lines)
+    stats_html = '<br>\n'.join(html_lines)
     return f'<div align="center">\n<samp>\n{stats_html}\n</samp>\n</div>'
 
 def update_readme(stats_text):
