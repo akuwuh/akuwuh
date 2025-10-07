@@ -19,6 +19,17 @@
 <br></br><br></br>
 
 <div align="center">
+
+  <picture align="right" width="45%">
+    <!-- Dark -->
+    <source media="(prefers-color-scheme: dark)"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=akuwuh&layout=compact&theme=transparent&hide_border=false&title_color=FFFFFF&text_color=FFFFFF&v=8">
+    <!-- Light -->
+    <source media="(prefers-color-scheme: light)"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=akuwuh&layout=compact&theme=transparent&hide_border=false&title_color=111111&text_color=111111&v=8">
+    <img width="95%" alt="Top Languages"
+      src="https://github-readme-stats.vercel.app/api/top-langs/?username=akuwuh&layout=compact&theme=transparent&hide_border=false&v=8">
+  </picture>
   <picture>
     <!-- Dark -->
     <source media="(prefers-color-scheme: dark)"
@@ -28,17 +39,6 @@
       srcset="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=true&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=262A30&currStreakNum=262A30&ring=262A30&fire=262A30&sideNums=262A30&sideLabels=262A30&dates=555555&v=7">
     <img width="45%" alt="GitHub Streak"
       src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&v=7">
-  </picture>
-
-  <picture>
-    <!-- Dark -->
-    <source media="(prefers-color-scheme: dark)"
-      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=akuwuh&layout=compact&theme=transparent&hide_border=false&title_color=FFFFFF&text_color=FFFFFF&v=8">
-    <!-- Light -->
-    <source media="(prefers-color-scheme: light)"
-      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=akuwuh&layout=compact&theme=transparent&hide_border=false&title_color=111111&text_color=111111&v=8">
-    <img width="95%" alt="Top Languages"
-      src="https://github-readme-stats.vercel.app/api/top-langs/?username=akuwuh&layout=compact&theme=transparent&hide_border=false&v=8">
   </picture>
 </div>
 
