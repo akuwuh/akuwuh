@@ -55,7 +55,7 @@
 &nbsp;&nbsp;│&nbsp;&nbsp;CSS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;2.9&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;Svelte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;1.0&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;└┬─────────────────────────────────────────────────────┘&nbsp;│<br>
-&nbsp;&nbsp;&nbsp;└──────────────────────────────────────────────────────┘
+&nbsp;&nbsp;└────────────────────────────────────────────────────────┘
 </samp>
 </div>
 <!--END_SECTION:languages-->

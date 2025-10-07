@@ -90,10 +90,10 @@ def generate_language_stats(lang_stats):
             lines.append(f'  │{padded_content}│ │')
     
     # Bottom border with 3D effect (matching info card structure)
-    # First line: 2 spaces + └┬ + (inner_width - 1) dashes + ┘ + 1 space + │
+    # First line: 2 spaces + └┬ + (inner_width - 1) dashes + ┘ + 1 space + │ = 60 chars
     lines.append('  └┬' + '─' * (inner_width - 1) + '┘ │')
-    # Second line: 3 spaces + └ + inner_width dashes + ┘
-    lines.append('   └' + '─' * inner_width + '┘')
+    # Second line: 2 spaces + └ + (inner_width + 2) dashes + ┘ = 60 chars
+    lines.append('  └' + '─' * (inner_width + 2) + '┘')
     
     # Replace spaces with &nbsp; to preserve alignment in HTML
     html_lines = []
