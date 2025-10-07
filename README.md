@@ -14,6 +14,7 @@ currently learning: infra :3
 favourite anime: stein;gate</pre>
 </div>
 
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/isaacnng) 
 [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:isaacnguyen0201@gmail.com)
   
