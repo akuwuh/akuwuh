@@ -1,5 +1,7 @@
 <div align="center">
-  <img src="assets/.inline_braille.svg" width="350" alt="braille art" />
+  <img src="assets/braille-light.svg#gh-light-mode-only" width="350" alt="braille art" />
+  <img src="assets/braille-dark.svg#gh-dark-mode-only" width="350" alt="braille art" />
+  
 <br></br><br></br>
 <samp>
 ┌──────────────────────────────────────┐<br>
