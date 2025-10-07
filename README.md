@@ -45,9 +45,14 @@
 <!--START_SECTION:languages-->
 <div align="center">
 <samp>
-TypeScript&nbsp;&nbsp;&nbsp;&nbsp;█████████████░░░░░░░░░░░░&nbsp;&nbsp;29.5&nbsp;%<br>
-Python&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████████░░░░░░░░░░░░░&nbsp;&nbsp;28.9&nbsp;%<br>
-C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████░░░░░░░░░░░░░░░░░&nbsp;&nbsp;18.4&nbsp;%
+TypeScript&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;29.1&nbsp;%<br>
+Python&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;28.5&nbsp;%<br>
+C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█████░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;18.2&nbsp;%<br>
+JavaScript&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;8.2&nbsp;%<br>
+C++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;7.6&nbsp;%<br>
+HTML&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;3.2&nbsp;%<br>
+CSS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;2.9&nbsp;%<br>
+Svelte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;1.0&nbsp;%
 </samp>
 </div>
 <!--END_SECTION:languages-->
