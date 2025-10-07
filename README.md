@@ -37,7 +37,7 @@
     <!-- Light -->
     <source media="(prefers-color-scheme: light)"
       srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=akuwuh&layout=compact&theme=transparent&hide_border=true&title_color=111111&text_color=111111&v=8">
-    <img align="right" width="40%" alt="Top Languages"
+    <img align="right" width="37%" alt="Top Languages"
       src="https://github-readme-stats.vercel.app/api/top-langs/?username=akuwuh&layout=compact&theme=transparent&hide_border=true&v=8">
   </picture>
 </div>
