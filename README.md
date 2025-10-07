@@ -3,7 +3,8 @@
 </div>
 <br></br>
 <img align="right" width="50%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=true&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&fire=FFFFFF&ring=FFFFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F"/>
-<pre align="left" width="30%">
+
+```
 isaac
  ├─ age           // 22
  ├─ location      // toronto, ca
@@ -11,7 +12,7 @@ isaac
  ├─ interest      // everything!
  ├─ learning      // infra :>
  └─ fav anime     // steins;gate
-</pre>
+```
 <br clear="both"><br/>
 
 
