@@ -1,6 +1,5 @@
 <div align="center">
   <img src="assets/.inline_braille.svg" width="350" alt="braille art" />
-</div>
 <br></br>
 <!-- <img align="right" width="45%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=true&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&fire=FFFFFF&ring=FFFFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F"/> -->
 
@@ -21,6 +20,7 @@
 
 <img align="center" width="45%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=true&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&fire=FFFFFF&ring=FFFFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F"/>
 
+</div>
 <br clear="both"><br/>
 
 
