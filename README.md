@@ -24,7 +24,7 @@
       srcset="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&currStreakNum=FFFFFF&ring=FFFFFF&fire=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F&v=7">
     <!-- Light -->
     <source media="(prefers-color-scheme: light)"
-      srcset="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=111111&currStreakNum=111111&ring=111111&fire=111111&sideNums=111111&sideLabels=111111&dates=555555&v=7">
+      srcset="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=262A30&currStreakNum=262A30&ring=262A30&fire=262A30&sideNums=262A30&sideLabels=262A30&dates=555555&v=7">
     <img width="45%" alt="GitHub Streak"
       src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&v=7">
   </picture>
@@ -34,7 +34,7 @@
 <!-- 
 <img align="center" width="45%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=FFFFFF&fire=FFFFFF&ring=FFFFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&sideLabels=FFFFFF&dates=EBEBEB8F#gh-dark-mode-only"/>  -->
 
-<!-- <img align="center" width="45%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=111111&currStreakNum=111111&ring=111111&sideNums=111111&sideLabels=111111&dates=555555#gh-light-mode-only"/> -->
+<!-- <img align="center" width="45%" src="https://streak-stats.demolab.com?user=akuwuh&theme=transparent&hide_border=false&date_format=n%2Fj%5B%2FY%5D&currStreakLabel=262A30&currStreakNum=262A30&ring=262A30&sideNums=262A30&sideLabels=262A30&dates=555555#gh-light-mode-only"/> -->
 
 <br clear="both"><br/>
 
