@@ -65,24 +65,29 @@ def generate_language_stats(lang_stats):
         line = f'{lang_display} {bar_string}  {percent_str}'
         content_lines.append(line)
     
-    # Calculate box width (based on content)
-    box_width = 50  # Adjust as needed
+    # Calculate content width (longest line)
+    max_content_length = max(len(line) for line in content_lines) if content_lines else 0
+    
+    # Box width = 2 (left padding) + content + 3 (right padding)
+    inner_width = max_content_length + 2 + 3
     
     # Build the 3D box
     lines = []
     
-    # Top border
-    lines.append('┌' + '─' * box_width + '┐')
+    # Top border (no left padding for top)
+    lines.append('┌' + '─' * inner_width + '┐')
     
     # Content lines with borders
     for content in content_lines:
-        # Pad content to fit box width
-        padded_content = f'  {content}'.ljust(box_width - 1)
+        # Left padding: 2 spaces, Right padding: 3 spaces
+        padded_content = f'  {content}'.ljust(inner_width)
         lines.append(f'│{padded_content}│')
     
-    # Bottom border with 3D effect
-    lines.append('└┬' + '─' * (box_width - 1) + '┘│')
-    lines.append(' └' + '─' * (box_width - 1) + '─┘')
+    # Bottom border with 3D effect (1 space extrusion)
+    # First line: 1 space indent + └┬ + dashes + ┘│
+    lines.append(' └┬' + '─' * (inner_width - 1) + '┘│')
+    # Second line: 2 spaces indent + └ + dashes + ─┘
+    lines.append('  └' + '─' * (inner_width - 1) + '─┘')
     
     # Replace spaces with &nbsp; to preserve alignment in HTML
     html_lines = []

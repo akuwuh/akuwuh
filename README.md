@@ -45,6 +45,7 @@
 <!--START_SECTION:languages-->
 <div align="center">
 <samp>
+<<<<<<< HEAD
 ┌──────────────────────────────────────────────────┐<br>
 │&nbsp;&nbsp;TypeScript&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;29.1&nbsp;%│<br>
 │&nbsp;&nbsp;Python&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;28.5&nbsp;%│<br>
@@ -56,6 +57,14 @@
 │&nbsp;&nbsp;Svelte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;1.0&nbsp;%│<br>
 └┬─────────────────────────────────────────────────┘│<br>
 &nbsp;└──────────────────────────────────────────────────┘
+=======
+┌──────────────────────────────────────────────────────┐<br>
+│&nbsp;&nbsp;TypeScript&nbsp;&nbsp;&nbsp;&nbsp;█████████████░░░░░░░░░░░░&nbsp;&nbsp;29.5&nbsp;%&nbsp;&nbsp;&nbsp;├─┐<br>
+│&nbsp;&nbsp;Python&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████████░░░░░░░░░░░░░&nbsp;&nbsp;28.9&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;|<br>
+│&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████░░░░░░░░░░░░░░░░░&nbsp;&nbsp;18.4&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;|<br>
+&nbsp;└┬─────────────────────────────────────────────────────┘&nbsp;│<br>
+&nbsp;&nbsp;└──────────────────────────────────────────────────────┘
+>>>>>>> 06bd210 (fixed extrusion:)
 </samp>
 </div>
 <!--END_SECTION:languages-->
