@@ -27,7 +27,17 @@ EMPTY_BLOCK = '░'         # Character for empty portion
 # ============================================================================
 
 LANG_NAME_WIDTH = 14      # Fixed width for language names
-MAX_LANGUAGES = 8         # Maximum number of languages to display
+MAX_LANGUAGES = 5         # Maximum number of languages to display
+
+# ============================================================================
+# LANGUAGE FILTERING
+# ============================================================================
+
+EXCLUDED_LANGUAGES = [
+    'JavaScript',
+    'HTML',
+    'CSS'
+]  # Languages to exclude from statistics
 
 # ============================================================================
 # README MARKERS

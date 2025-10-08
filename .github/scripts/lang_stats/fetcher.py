@@ -4,7 +4,7 @@ GitHub API data fetcher for language statistics
 
 import requests
 from collections import defaultdict
-from .config import MAX_LANGUAGES
+from .config import MAX_LANGUAGES, EXCLUDED_LANGUAGES
 
 
 def fetch_language_stats(username, token):
@@ -36,6 +36,11 @@ def fetch_language_stats(username, token):
                 if isinstance(languages, dict):
                     for lang, bytes_count in languages.items():
                         lang_bytes[lang] += bytes_count
+    
+    # Filter out excluded languages
+    for excluded_lang in EXCLUDED_LANGUAGES:
+        if excluded_lang in lang_bytes:
+            del lang_bytes[excluded_lang]
     
     # Calculate percentages
     total_bytes = sum(lang_bytes.values())
