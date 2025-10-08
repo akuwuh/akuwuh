@@ -46,12 +46,12 @@
 <div align="center">
 <samp>
 ┌──────────────────────────────────────────────────────┐<br>
-&nbsp;&nbsp;│&nbsp;&nbsp;TypeScript&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;33.9&nbsp;%&nbsp;&nbsp;&nbsp;├─┐<br>
-&nbsp;&nbsp;│&nbsp;&nbsp;Python&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;33.3&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
-&nbsp;&nbsp;│&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█████░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;21.2&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
-&nbsp;&nbsp;│&nbsp;&nbsp;C++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;8.8&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;TypeScript&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█████████░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;34.3&nbsp;%&nbsp;&nbsp;&nbsp;├─┐<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;Python&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;████████░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;33.6&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█████░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;21.4&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;C++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;8.9&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;Svelte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;1.2&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
-&nbsp;&nbsp;│&nbsp;&nbsp;SCSS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;1.0&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;Makefile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;0.3&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;└┬─────────────────────────────────────────────────────┘&nbsp;│<br>
 &nbsp;&nbsp;&nbsp;└───────────────────────────────────────────────────────┘
 </samp>
