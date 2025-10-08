@@ -1,146 +1,24 @@
 #!/usr/bin/env python3
+"""
+GitHub Language Statistics Generator
+Fetches language statistics from GitHub and updates README.md with a 3D box visualization
+"""
+
 import os
 import sys
-import re
-import requests
-from collections import defaultdict
 
-def fetch_language_stats(username, token):
-    """Fetch language statistics from GitHub API"""
-    headers = {'Authorization': f'token {token}'}
-    
-    # Get all repos
-    repos_url = f'https://api.github.com/users/{username}/repos?per_page=100'
-    repos = requests.get(repos_url, headers=headers).json()
-    
-    # Aggregate language bytes across all repos
-    lang_bytes = defaultdict(int)
-    
-    for repo in repos:
-        if isinstance(repo, dict) and not repo.get('fork', False):
-            lang_url = repo.get('languages_url')
-            if lang_url:
-                languages = requests.get(lang_url, headers=headers).json()
-                if isinstance(languages, dict):
-                    for lang, bytes_count in languages.items():
-                        lang_bytes[lang] += bytes_count
-    
-    # Calculate percentages
-    total_bytes = sum(lang_bytes.values())
-    if total_bytes == 0:
-        return []
-    
-    lang_stats = []
-    for lang, bytes_count in lang_bytes.items():
-        percentage = (bytes_count / total_bytes) * 100
-        lang_stats.append((lang, percentage))
-    
-    # Sort by percentage descending
-    lang_stats.sort(key=lambda x: x[1], reverse=True)
-    
-    return lang_stats[:8]  # Top 8 languages
+# Add the scripts directory to the path
+sys.path.insert(0, os.path.dirname(__file__))
 
-def generate_progress_bar(percentage, total_blocks=25):
-    """Generate filled and empty blocks based on percentage"""
-    filled_blocks = round((percentage / 100) * total_blocks)
-    empty_blocks = total_blocks - filled_blocks
-    return '█' * filled_blocks + '░' * empty_blocks
+from lang_stats.fetcher import fetch_language_stats
+from lang_stats.generator import generate_language_stats
+from lang_stats.readme_updater import update_readme
 
-def generate_language_stats(lang_stats):
-    """Generate WakaTime-style language stats as HTML samp with 3D box"""
-    
-    # Build the content lines
-    content_lines = []
-    for lang_name, percentage in lang_stats:
-        # Pad language name to fixed width (14 chars)
-        lang_display = lang_name.ljust(14)
-        
-        # Generate progress bar
-        bar_string = generate_progress_bar(percentage)
-        
-        # Format percentage with padding
-        percent_str = f'{percentage:5.1f} %'
-        
-        # Combine: "TypeScript    ████████████░░░░░░░░░░░░░  29.5 %"
-        line = f'{lang_display} {bar_string}  {percent_str}'
-        content_lines.append(line)
-    
-    # Calculate content width (longest line)
-    max_content_length = max(len(line) for line in content_lines) if content_lines else 0
-    
-    # Inner width = 2 (left padding inside box) + content + 3 (right padding inside box)
-    inner_width = 2 + max_content_length + 3
-    
-    # Build the 3D box
-    lines = []
-    
-    # Top border (no left padding for top)
-    lines.append('┌' + '─' * inner_width + '┐')
-    
-    # Content lines with borders and right extrusion
-    for i, content in enumerate(content_lines):
-        # Pad: 2 spaces (left) + content + fill to inner_width
-        padded_content = f'  {content}'.ljust(inner_width)
-        
-        if i == 0:
-            # First content line: 2 spaces (outside) + │ + padded_content + ├─┐
-            lines.append(f'  │{padded_content}├─┐')
-        else:
-            # Other content lines: 2 spaces (outside) + │ + padded_content + │ │
-            lines.append(f'  │{padded_content}│ │')
-    
-    # Bottom border with 3D effect (matching info card structure)
-    # First line: 2 spaces + └┬ + (inner_width - 1) dashes + ┘ + 1 space + │ = 60 chars
-    lines.append('  └┬' + '─' * (inner_width - 1) + '┘ │')
-    # Second line: 2 spaces + └ + (inner_width + 2) dashes + ┘ = 60 chars
-    lines.append('  └' + '─' * (inner_width + 2) + '┘')
-    
-    # Replace spaces with &nbsp; to preserve alignment in HTML
-    html_lines = []
-    for line in lines:
-        html_line = line.replace(' ', '&nbsp;')
-        html_lines.append(html_line)
-    
-    # Wrap in centered div with samp tag
-    stats_html = '<br>\n'.join(html_lines)
-    return f'<div align="center">\n<samp>\n{stats_html}\n</samp>\n</div>'
-
-def update_readme(stats_text):
-    """Update README.md with language stats between markers"""
-    readme_path = 'README.md'
-    
-    try:
-        with open(readme_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-    except FileNotFoundError:
-        print(f"Error: {readme_path} not found")
-        sys.exit(1)
-    
-    # Markers for the stats section
-    start_marker = '<!--START_SECTION:languages-->'
-    end_marker = '<!--END_SECTION:languages-->'
-    
-    # Check if markers exist
-    if start_marker not in content or end_marker not in content:
-        print(f"Error: Markers not found in {readme_path}")
-        print(f"Please add these markers to your README:")
-        print(f"  {start_marker}")
-        print(f"  {end_marker}")
-        sys.exit(1)
-    
-    # Replace content between markers
-    pattern = f'{re.escape(start_marker)}.*?{re.escape(end_marker)}'
-    new_section = f'{start_marker}\n{stats_text}\n{end_marker}'
-    
-    updated_content = re.sub(pattern, new_section, content, flags=re.DOTALL)
-    
-    # Write back to README
-    with open(readme_path, 'w', encoding='utf-8') as f:
-        f.write(updated_content)
-    
-    print(f"Successfully updated {readme_path}")
 
 def main():
+    """Main workflow: fetch stats, generate box, update README"""
+    
+    # Step 1: Get environment variables
     token = os.environ.get('GITHUB_TOKEN')
     username = os.environ.get('GITHUB_ACTOR', 'akuwuh')
     
@@ -149,29 +27,31 @@ def main():
         sys.exit(1)
     
     print(f"Fetching language stats for {username}...")
+    
+    # Step 2: Fetch language statistics from GitHub API
     lang_stats = fetch_language_stats(username, token)
     
     if not lang_stats:
         print("No language data found")
         sys.exit(1)
     
-    print(f"Found {len(lang_stats)} languages")
+    print(f"Found {len(lang_stats)} languages:")
     for lang, pct in lang_stats:
         print(f"  {lang}: {pct:.1f}%")
     
-    # Generate stats text
-    print("\nGenerating language stats...")
-    stats_text = generate_language_stats(lang_stats)
+    # Step 3: Generate formatted stats with 3D box
+    print("\nGenerating language stats with 3D box...")
+    stats_text = generate_language_stats(lang_stats, use_3d=True)
     
-    print("\nGenerated stats:")
-    print(stats_text)
+    print("\nGenerated HTML preview:")
+    print(stats_text[:200] + "...")
     
-    # Update README
+    # Step 4: Update README.md
     print("\nUpdating README.md...")
     update_readme(stats_text)
     
-    print("Done!")
+    print("\n✓ Done! Language stats updated successfully.")
+
 
 if __name__ == '__main__':
     main()
-
