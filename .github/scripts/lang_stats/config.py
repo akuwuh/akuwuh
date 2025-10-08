@@ -12,7 +12,7 @@ RIGHT_PADDING = 3  # Spaces to the right of content inside box
 
 # Extrusion spacing (3D effect)
 EXTRUSION_INDENT_LEVEL_1 = 2  # Spaces before content lines and first bottom line
-EXTRUSION_INDENT_LEVEL_2 = 2  # Spaces before second bottom line (depth effect)
+EXTRUSION_INDENT_LEVEL_2 = 3  # Spaces before second bottom line (depth effect)
 
 # ============================================================================
 # PROGRESS BAR CONFIGURATION

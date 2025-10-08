@@ -85,7 +85,7 @@ def draw_3d_border(content_lines):
     # First bottom line: └┬ with (inner_width - 1) dashes + right extrusion
     lines.append(f'{indent_1}└┬' + '─' * (inner_width - 1) + '┘ │')
     
-    # Second bottom line: └ with (inner_width + 2) dashes
-    lines.append(f'{indent_2}└' + '─' * (inner_width + 2) + '┘')
+    # Second bottom line: └ with (inner_width + 1) dashes
+    lines.append(f'{indent_2}└' + '─' * (inner_width + 1) + '┘')
     
     return lines

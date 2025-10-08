@@ -56,13 +56,13 @@
    - Left extrusion: 2 spaces indent
    - Right extrusion: ` │` at end
 
-5. **Bottom line 2**: `   ` (3 spaces) + `└` + `inner_width` × `─` + `┘`
+5. **Bottom line 2**: `   ` (3 spaces) + `└` + `(inner_width + 1)` × `─` + `┘`
    - Length: `inner_width + 5` chars
    - Left extrusion: 3 spaces indent (1 more than line 1)
 
 ### Character Counts:
 - Top: `inner_width + 2` chars
-- Content/Bottom line 1: `inner_width + 6` chars (all same length)
+- Content/Bottom line 1: `inner_width + 6` chars (same length)
 - Bottom line 2: `inner_width + 5` chars
 
 ### Key Rules:
@@ -71,7 +71,7 @@
 3. **Left extrusion spacing**: 
    - Content lines: 2 spaces before `│`
    - Bottom line 1: 2 spaces before `└┬`
-   - Bottom line 2: 3 spaces before `└` (1 space deeper)
+   - Bottom line 2: 3 spaces before `└` (1 more space for depth)
 4. **Right extrusion**:
    - First line: `├─┐` (starts the extrusion)
    - Other lines: `│ │` (continues the extrusion)
@@ -123,7 +123,7 @@ for i, content in enumerate(content_lines):
 
 # Bottom with both extrusions
 lines.append('  └┬' + '─' * (inner_width - 1) + '┘ │')
-lines.append('   └' + '─' * inner_width + '┘')
+lines.append('   └' + '─' * (inner_width + 1) + '┘')
 
 # Convert to HTML
 html_lines = [line.replace(' ', '&nbsp;') for line in lines]
