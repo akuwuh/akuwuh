@@ -51,7 +51,6 @@
 &nbsp;&nbsp;│&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█████░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;21.4&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;C++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;8.9&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;Svelte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;1.2&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
-&nbsp;&nbsp;│&nbsp;&nbsp;Makefile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;0.3&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;└┬─────────────────────────────────────────────────────┘&nbsp;│<br>
 &nbsp;&nbsp;&nbsp;└───────────────────────────────────────────────────────┘
 </samp>
