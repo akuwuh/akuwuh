@@ -36,7 +36,8 @@ MAX_LANGUAGES = 6         # Maximum number of languages to display
 EXCLUDED_LANGUAGES = [
     'JavaScript',
     'HTML',
-    'CSS'
+    'CSS',
+    'SCSS'
 ]  # Languages to exclude from statistics
 
 # ============================================================================
