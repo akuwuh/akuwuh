@@ -51,6 +51,7 @@
 &nbsp;&nbsp;│&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█████░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;21.2&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;C++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;8.8&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;Svelte&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;1.2&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;SCSS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;░░░░░░░░░░░░░░░░░░░░░░░░░&nbsp;&nbsp;&nbsp;&nbsp;1.0&nbsp;%&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;└┬─────────────────────────────────────────────────────┘&nbsp;│<br>
 &nbsp;&nbsp;&nbsp;└───────────────────────────────────────────────────────┘
 </samp>
