@@ -20,8 +20,17 @@ jobs:
         with:
           python-version: '3.x'
       
-      - name: Install dependencies
-        run: pip install requests
+      - name: Checkout re-po (lang-stats package)
+        uses: actions/checkout@v3
+        with:
+          repository: akuwuh/re-po
+          path: re-po
+      
+      - name: Install lang-stats package
+        run: |
+          cd re-po/packages/py-core
+          pip install -r requirements.txt
+          pip install -e .
       
       - name: Generate language stats
         env:
@@ -30,7 +39,7 @@ jobs:
           OUTPUT_MODE: ${{ vars.OUTPUT_MODE || 'vector' }}  # Options: 'text', 'vector'
           USE_GRAPHICAL_BARS: ${{ vars.USE_GRAPHICAL_BARS || 'true' }}  # For vector mode
           SVG_THEME: ${{ vars.SVG_THEME || 'light' }}  # Options: 'light', 'dark'
-        run: python .github/scripts/generate_langs.py
+        run: python re-po/packages/py-core/generate_langs.py
       
       - name: Commit and push if changed
         run: |
