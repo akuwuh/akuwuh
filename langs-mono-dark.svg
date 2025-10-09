@@ -26,24 +26,24 @@
 
   <!-- Language Statistics -->
   <g id="content">
-    <text x="40" y="55" class="lang-text">TypeScript    </text>
-    <rect x="193.6" y="41" width="82.07999999999998" height="12" class="bar-filled" />
-    <rect x="275.67999999999995" y="41" width="145.92000000000002" height="12" class="bar-empty" />
-    <text x="440.8" y="55" class="lang-text"> 34.3 %</text>
-    <text x="40" y="79" class="lang-text">Python        </text>
-    <rect x="193.6" y="65" width="72.96" height="12" class="bar-filled" />
-    <rect x="266.56" y="65" width="155.04000000000002" height="12" class="bar-empty" />
-    <text x="440.8" y="79" class="lang-text"> 33.6 %</text>
+    <text x="40" y="55" class="lang-text">Python        </text>
+    <rect x="193.6" y="41" width="100.32" height="12" class="bar-filled" />
+    <rect x="293.91999999999996" y="41" width="127.68" height="12" class="bar-empty" />
+    <text x="440.8" y="55" class="lang-text"> 42.9 %</text>
+    <text x="40" y="79" class="lang-text">TypeScript    </text>
+    <rect x="193.6" y="65" width="63.839999999999996" height="12" class="bar-filled" />
+    <rect x="257.44" y="65" width="164.16" height="12" class="bar-empty" />
+    <text x="440.8" y="79" class="lang-text"> 29.5 %</text>
     <text x="40" y="103" class="lang-text">C             </text>
     <rect x="193.6" y="89" width="45.599999999999994" height="12" class="bar-filled" />
     <rect x="239.2" y="89" width="182.4" height="12" class="bar-empty" />
-    <text x="440.8" y="103" class="lang-text"> 21.4 %</text>
+    <text x="440.8" y="103" class="lang-text"> 18.4 %</text>
     <text x="40" y="127" class="lang-text">C++           </text>
     <rect x="193.6" y="113" width="18.24" height="12" class="bar-filled" />
     <rect x="211.84" y="113" width="209.76" height="12" class="bar-empty" />
-    <text x="440.8" y="127" class="lang-text">  8.9 %</text>
+    <text x="440.8" y="127" class="lang-text">  7.7 %</text>
     <text x="40" y="151" class="lang-text">Svelte        </text>
     <rect x="193.6" y="137" width="228.0" height="12" class="bar-empty" />
-    <text x="440.8" y="151" class="lang-text">  1.2 %</text>
+    <text x="440.8" y="151" class="lang-text">  1.1 %</text>
   </g>
 </svg>
