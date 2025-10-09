@@ -27,12 +27,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.repository_owner }}
+          OUTPUT_MODE: ${{ vars.OUTPUT_MODE || 'vector' }}  # Options: 'text', 'vector'
+          USE_GRAPHICAL_BARS: ${{ vars.USE_GRAPHICAL_BARS || 'true' }}  # For vector mode
+          SVG_THEME: ${{ vars.SVG_THEME || 'light' }}  # Options: 'light', 'dark'
         run: python .github/scripts/generate_langs.py
       
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md
+          git add README.md langs-mono-*.svg 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update language stats" && git push)
 

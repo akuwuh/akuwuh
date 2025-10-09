@@ -46,3 +46,15 @@ EXCLUDED_LANGUAGES = [
 
 START_MARKER = '<!--START_SECTION:languages-->'
 END_MARKER = '<!--END_SECTION:languages-->'
+
+# ============================================================================
+# OUTPUT MODE CONFIGURATION
+# ============================================================================
+
+OUTPUT_MODE = 'text'  # Options: 'text', 'vector'
+# text: Generates HTML with text-based box drawing characters
+# vector: Generates SVG with vector graphics
+
+USE_GRAPHICAL_BARS = True  # For vector mode: use graphical rectangles instead of text characters
+USE_VECTOR_BORDERS = True  # For vector mode: use SVG paths for borders (better alignment)
+SVG_THEME = 'light'  # Options: 'light', 'dark' (for vector mode)
