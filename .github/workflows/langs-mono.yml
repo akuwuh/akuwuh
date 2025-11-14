@@ -17,31 +17,22 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Languages card
+        uses: akuwuh/re-po@main
         with:
-          python-version: '3.x'
-
-      - name: Install re-po package
-        run: |
-          python -m pip install --upgrade pip
-          pip install "git+https://github.com/akuwuh/re-po.git#subdirectory=packages/py-core"
-
-      - name: Generate language stats
-        env:
-          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          GITHUB_ACTOR: ${{ github.repository_owner }}
-          OUTPUT_MODE: ${{ vars.OUTPUT_MODE || 'vector' }}
-          USE_GRAPHICAL_BARS: ${{ vars.USE_GRAPHICAL_BARS || 'true' }}
-          SVG_THEME: ${{ vars.SVG_THEME || 'light' }}
-        run: generate-langs
+          card: languages
+          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
+          actor: ${{ github.repository_owner }}
+          languages_output_mode: vector        # defaults to vector
+          languages_max_languages: "6"
+          languages_excluded_languages: "HTML,CSS, JavaScript"
 
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add README.md langs-mono-*.svg 2>/dev/null || true
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update language stats" && git push)
+          git diff --quiet && git diff --staged --quiet || \
+            (git commit -m "Update language stats" && git push)
