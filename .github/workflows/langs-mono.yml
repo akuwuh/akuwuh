@@ -1,6 +1,8 @@
 name: Languages (mono)
+
 on:
-  schedule: [{ cron: "0 6 * * *" }]
+  schedule:
+    - cron: "0 6 * * *"
   workflow_dispatch:
   push:
     branches: [ main ]
@@ -11,40 +13,35 @@ on:
 jobs:
   langs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-      
+        uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      
-      - name: Checkout re-po (lang-stats package)
-        uses: actions/checkout@v3
-        with:
-          repository: akuwuh/re-po
-          path: re-po
-      
-      - name: Install lang-stats package
+
+      - name: Install re-po package
         run: |
-          cd re-po/packages/py-core
-          pip install -r requirements.txt
-          pip install -e .
-      
+          python -m pip install --upgrade pip
+          pip install "git+https://github.com/akuwuh/re-po.git#subdirectory=packages/py-core"
+
       - name: Generate language stats
         env:
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.repository_owner }}
-          OUTPUT_MODE: ${{ vars.OUTPUT_MODE || 'vector' }}  # Options: 'text', 'vector'
-          USE_GRAPHICAL_BARS: ${{ vars.USE_GRAPHICAL_BARS || 'true' }}  # For vector mode
-          SVG_THEME: ${{ vars.SVG_THEME || 'light' }}  # Options: 'light', 'dark'
-        run: python re-po/packages/py-core/generate_langs.py
-      
+          OUTPUT_MODE: ${{ vars.OUTPUT_MODE || 'vector' }}
+          USE_GRAPHICAL_BARS: ${{ vars.USE_GRAPHICAL_BARS || 'true' }}
+          SVG_THEME: ${{ vars.SVG_THEME || 'light' }}
+        run: generate-langs
+
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add README.md langs-mono-*.svg 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update language stats" && git push)
-
