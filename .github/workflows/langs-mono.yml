@@ -27,7 +27,7 @@ jobs:
           actor: ${{ github.repository_owner }}
           languages_output_mode: vector        # defaults to vector
           languages_max_languages: "6"
-          languages_excluded_languages: "HTML,CSS,JavaScript,Shell,Svelte"
+          languages_excluded_languages: "HTML,CSS,JavaScript,Shell,Svelte,SCSS"
 
       - name: Commit and push if changed
         run: |
