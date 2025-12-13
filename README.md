@@ -51,7 +51,7 @@
     <!-- Light -->
     <source media="(prefers-color-scheme: light)"
       srcset="langs-mono-light.svg">
-    <img width="475" alt="Language Statistics"
+    <img width="480" alt="Language Statistics"
       src="langs-mono-light.svg">
   </picture>
 </div>
