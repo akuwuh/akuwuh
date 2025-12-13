@@ -7,7 +7,7 @@ on:
   push:
     branches: [ main ]
     paths-ignore:
-      - 'langs-mono-*.svg'
+      - '*.svg'
       - 'README.md'
 
 jobs:
@@ -33,6 +33,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md langs-mono-*.svg 2>/dev/null || true
+          git add README.md *.svg 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || \
-            (git commit -m "Update language stats" && git push)
+            (git commit -m "Update Stats" && git push)
