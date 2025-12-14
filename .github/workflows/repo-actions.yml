@@ -7,8 +7,12 @@ on:
   push:
     branches: [ main ]
     paths-ignore:
-      - '*.svg'
-      - 'README.md'
+      - "*.svg"
+      - "README.md"
+
+concurrency:
+  group: re-po-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   cards:
@@ -19,24 +23,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # --- Card 1 ---
       - name: Languages card
         uses: akuwuh/re-po@main
         with:
           card: languages
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           actor: ${{ github.repository_owner }}
-          languages_output_mode: vector        # defaults to vector
+          languages_output_mode: vector
           languages_max_languages: "6"
           languages_excluded_languages: "HTML,CSS,JavaScript,Shell,Svelte,SCSS"
 
+      # --- Card 2 (optional / future) ---
       # - name: Bio card
       #   uses: akuwuh/re-po@main
       #   with:
       #     card: bio
       #     token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
       #     actor: ${{ github.repository_owner }}
-      
-
 
       - name: Commit and push if changed
         run: |
@@ -44,4 +48,4 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add README.md *.svg 2>/dev/null || true
           git diff --quiet && git diff --staged --quiet || \
-            (git commit -m "Update Stats" && git push)
+            (git commit -m "Update re-po cards" && git push)
