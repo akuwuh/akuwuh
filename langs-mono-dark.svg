@@ -38,19 +38,19 @@
     <text x="40" y="55" class="lang-text">TypeScript     </text>
     <rect x="203.2" y="41" width="118.55999999999999" height="12" class="bar-filled" />
     <rect x="321.76" y="41" width="109.44000000000001" height="12" class="bar-empty" />
-    <text x="450.4" y="55" class="lang-text"> 52.1 %</text>
+    <text x="450.4" y="55" class="lang-text"> 50.5 %</text>
     <text x="40" y="79" class="lang-text">Python         </text>
     <rect x="203.2" y="65" width="82.07999999999998" height="12" class="bar-filled" />
     <rect x="285.28" y="65" width="145.92000000000002" height="12" class="bar-empty" />
-    <text x="450.4" y="79" class="lang-text"> 34.6 %</text>
+    <text x="450.4" y="79" class="lang-text"> 36.6 %</text>
     <text x="40" y="103" class="lang-text">C              </text>
     <rect x="203.2" y="89" width="18.24" height="12" class="bar-filled" />
     <rect x="221.44" y="89" width="209.76" height="12" class="bar-empty" />
-    <text x="450.4" y="103" class="lang-text">  9.0 %</text>
+    <text x="450.4" y="103" class="lang-text">  8.7 %</text>
     <text x="40" y="127" class="lang-text">C++            </text>
     <rect x="203.2" y="113" width="9.12" height="12" class="bar-filled" />
     <rect x="212.32" y="113" width="218.88" height="12" class="bar-empty" />
-    <text x="450.4" y="127" class="lang-text">  3.7 %</text>
+    <text x="450.4" y="127" class="lang-text">  3.6 %</text>
     <text x="40" y="151" class="lang-text">Rust           </text>
     <rect x="203.2" y="137" width="228.0" height="12" class="bar-empty" />
     <text x="450.4" y="151" class="lang-text">  0.4 %</text>
