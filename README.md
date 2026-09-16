@@ -15,7 +15,7 @@
 ┌──────────────────────────────────────┐<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;isaac&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─┐<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├─&nbsp;age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
-&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├─&nbsp;location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;toronto,&nbsp;ca&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├─&nbsp;location&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;la;&nbsp;tor&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├─&nbsp;studying&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;cs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├─&nbsp;interest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;everything!&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├─&nbsp;learning&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;infra&nbsp;:>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;│<br>
